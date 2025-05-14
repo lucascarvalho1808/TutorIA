@@ -101,12 +101,6 @@ chatbot-educacional-ia/
 
 ---
 
-## 🤝 Colabore
-
-Contribuições são bem-vindas! Fique à vontade para abrir issues ou pull requests.
-
----
-
 ## 📄 Licença
 
 Este projeto está sob a licença MIT.
