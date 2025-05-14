@@ -1,6 +1,6 @@
-# Chatbot Educacional Personalizado com IA
+# TutorIA — Chatbot Educacional Personalizado com IA
 
-Um projeto simples de chatbot educacional baseado em inteligência artificial, com integração à API da OpenAI, que responde dúvidas, gera exercícios e sugestões de estudo, e aceita upload de PDFs para fornecer contexto personalizado nas respostas.
+Um projeto simples de chatbot educacional baseado em inteligência artificial, com integração à API da OpenAI, que responde dúvidas, gera exercícios e sugestões de estudo, e aceita upload de PDFs (ou arquivos CSV) para fornecer contexto personalizado nas respostas.
 
 ---
 
@@ -10,8 +10,8 @@ Um projeto simples de chatbot educacional baseado em inteligência artificial, c
 - **Gera explicações alternativas** e exemplos diferentes conforme solicitado.
 - **Cria exercícios e quizzes** sob demanda.
 - **Sugere materiais complementares** (vídeos, artigos, etc.).
-- **Aceita upload de arquivos PDF** (apostilas, resumos, listas), utilizando o conteúdo para contextualizar as respostas.
-- **Interface simples** via terminal, web (opcional), Telegram ou WhatsApp.
+- **Aceita upload de arquivos PDF ou CSV** (apostilas, resumos, listas), utilizando o conteúdo para contextualizar as respostas.
+- **Interface web moderna** via [Streamlit](https://streamlit.io/) para uma experiência amigável e interativa.
 
 ---
 
@@ -22,19 +22,17 @@ Um projeto simples de chatbot educacional baseado em inteligência artificial, c
 - [tiktoken](https://pypi.org/project/tiktoken/) — contagem de tokens OpenAI.
 - [pandas](https://pypi.org/project/pandas/) — manipulação e análise de dados/tabulados.
 - [PyPDF2](https://pypi.org/project/PyPDF2/) ou [pdfplumber](https://pypi.org/project/pdfplumber/) — extração de texto de PDFs.
-- [Flask](https://pypi.org/project/Flask/) ou [FastAPI](https://pypi.org/project/fastapi/) — backend (opcional).
-- [Streamlit](https://pypi.org/project/streamlit/) — prototipagem de interface web (opcional).
-- [python-telegram-bot](https://pypi.org/project/python-telegram-bot/) — integração com Telegram (opcional).
-- [twilio](https://pypi.org/project/twilio/) — integração com WhatsApp (opcional).
+- [Streamlit](https://pypi.org/project/streamlit/) — interface web moderna e simples.
 
 ---
 
 ## 💡 Como Funciona
 
-1. O usuário envia uma pergunta, faz upload de um PDF ou solicita exercícios.
-2. O sistema extrai e processa (com pandas, se necessário) o conteúdo do PDF.
-3. Monta um prompt completo, usando o contexto do PDF, e envia para a API da OpenAI.
-4. Exibe a resposta gerada ao usuário.
+1. O usuário acessa a aplicação via web (Streamlit).
+2. O usuário pode enviar uma pergunta, fazer upload de um PDF ou CSV, ou solicitar exercícios.
+3. O sistema extrai e processa (com pandas, se necessário) o conteúdo do arquivo enviado.
+4. O bot monta um prompt completo, usando o contexto do arquivo, e envia para a API da OpenAI.
+5. O bot exibe a resposta gerada na interface web.
 
 ### Exemplos de Uso
 
@@ -56,13 +54,13 @@ Um projeto simples de chatbot educacional baseado em inteligência artificial, c
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/chatbot-educacional-ia.git
-   cd chatbot-educacional-ia
+   git clone https://github.com/seu-usuario/tutoria.git
+   cd tutoria
    ```
 2. **Crie um ambiente virtual e instale as dependências:**
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # ou venv\Scripts\activate no Windows
+   python -m venv .venv
+   source .venv/bin/activate  # ou .venv\Scripts\activate no Windows
    pip install -r requirements.txt
    ```
 3. **Configure a chave da OpenAI:**
@@ -70,24 +68,30 @@ Um projeto simples de chatbot educacional baseado em inteligência artificial, c
      ```
      OPENAI_API_KEY=sk-...
      ```
-4. **Execute a aplicação:**
-   - Siga as instruções do README para rodar via terminal, web, ou integrar com Telegram/WhatsApp.
+4. **Execute a aplicação Streamlit:**
+   ```bash
+   streamlit run app.py
+   ```
 
 ---
 
-## 📁 Estrutura Sugerida do Projeto
+## 📁 Estrutura do Projeto
 
 ```
-chatbot-educacional-ia/
-├── app.py
-├── chatbot/
-│   ├── openai_client.py
-│   ├── pdf_reader.py
-│   └── prompts.py
-├── requirements.txt
-├── README.md
-└── .env.example
+.venv/
+.env
+.gitignore
+app.py
+arquivo_teste.pdf  # Ou qualquer PDF/CSV como base de dados/contexto
+requirements.txt
 ```
+
+- **app.py**: Código principal da aplicação Streamlit.
+- **arquivo_teste.pdf**: Exemplo de arquivo base (pode ser substituído por PDFs).
+- **requirements.txt**: Dependências do projeto.
+- **.env**: Variáveis de ambiente (API Key da OpenAI).
+- **.venv**: Ambiente virtual (não incluir no git).
+- **.gitignore**: Arquivos e pastas a serem ignorados no versionamento.
 
 ---
 
