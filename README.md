@@ -19,7 +19,6 @@ Um projeto simples de chatbot educacional baseado em inteligência artificial, c
 
 - [Python 3.8+](https://www.python.org/)
 - [openai](https://pypi.org/project/openai/) — API oficial para modelos GPT.
-- [tiktoken](https://pypi.org/project/tiktoken/) — contagem de tokens OpenAI.
 - [pandas](https://pypi.org/project/pandas/) — manipulação e análise de dados/tabulados.
 - [PyPDF2](https://pypi.org/project/PyPDF2/) ou [pdfplumber](https://pypi.org/project/pdfplumber/) — extração de texto de PDFs.
 - [Streamlit](https://pypi.org/project/streamlit/) — interface web moderna e simples.
